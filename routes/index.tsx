@@ -11,27 +11,31 @@ export const handler: Handlers = {
         }
         const epic_json_api = await resp.json();
         let free_games =  await epic_json_api.data.Catalog.searchStore.elements;
+
         return ctx.render(free_games);
   }
 }
 
 export default function Index(props) {
     if (!props.data) {
-        return <h1>Nessun gioco gratis</h1>;
+        return <h1>Nessun gioco gratis</h1>
     }
 
-  return (
-    <div class={tw`flex h-screen`}>
-        <div class={tw`m-auto`}>
-            <ul>
-                {props.data.map(game => {
-                    if (game.promotions != null) {
-                        return <li><a href={`game/${game.title}`}>{game.title}</a></li>
-                    }
-                })}
-            </ul>
-        </div>
-    </div>
-  );
+    return (
+        <div class={tw`mx-5 mt-5 grid grid-cols-5 gap-2 place-items-center content-center`}>
+            {props.data.map(game => {
+                if (game.promotions != null) {
+                    return (
+                        <a href={`game/${game.title}`}>
+                            <img class={tw`rounded-lg`} src={
+                                (game.keyImages.filter(function(item) {
+                                    return item.type === "Thumbnail";
+                                }))[0].url
+                            }/>
+                        </a>
+                    )
+                }
+            })}
+        </div> 
+  )
 }
-
