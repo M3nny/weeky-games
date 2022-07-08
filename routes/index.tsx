@@ -81,25 +81,33 @@ export default function Index(props) {
     }
 
     return (
-        <div class={tw`mx-5 mt-5 grid grid-cols-4 place-items-center h-screen`}>
-            {props.data.map(game => {
-                return (
-                    <a href={`game/${game.title}`}>
-                    
-                        <div class={tw`bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-80`}>
-                            <img class={tw`rounded-lg`} src={
-                                (game.keyImages.filter(function(item) {
-                                    return item.type === "Thumbnail";
-                                }))[0].url
-                            }/>
-                            <div class={tw`p-5`}>
-                                <h5 class={tw`mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate`}>{game.title}</h5>
-                                <p class={tw`mb-3 font-normal text-gray-700 dark:text-gray-400`}>{getDates(game)}</p>
-                            </div>
-                        </div>
-                    </a>
-                )
-            })}
-        </div> 
+       
+            <div class={tw`container grid place-items-center h-screen my-12 mx-auto px-4 md:px-12`}>
+                <div class={tw`flex flex-wrap -mx-1 lg:-mx-4`}>
+                    {props.data.map(game => {
+                        return (
+                            <a href={`game/${game.title}`}>
+                                <div class={tw `flex flex-wrap -mx-1 lg:-mx-4`}>
+                                    <div class={tw `my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3`}>
+                            
+                                        <div class={tw`mx-1 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-80`}>
+                                            <img class={tw`rounded-lg`} src={
+                                                (game.keyImages.filter(function(item) {
+                                                    return item.type === "Thumbnail";
+                                                }))[0].url
+                                            }/>
+                                            <div class={tw`p-5`}>
+                                                <h5 class={tw`mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate`}>{game.title}</h5>
+                                                <p class={tw`mb-3 font-normal text-gray-700 dark:text-gray-400`}>{getDates(game)}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        )
+                    })}
+                </div>
+            </div>
+        
   )
 }
