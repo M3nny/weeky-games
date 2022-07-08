@@ -40,7 +40,7 @@ function sort(array) {
     return array;
 }
 
-// Order the games by free now(alphabetical order) -> free later(Alphabetical order)
+// Order the games by free now(alphabetical order) -> free later(alphabetical order)
 function order(games) {
     let free_now = [];
     let free_later = [];
@@ -81,19 +81,19 @@ export default function Index(props) {
     }
 
     return (
-        <div class={tw`mx-5 mt-5 grid grid-cols-5 gap-2 place-items-center content-center`}>
+        <div class={tw`mx-5 mt-5 grid grid-cols-4 place-items-center h-screen`}>
             {props.data.map(game => {
                 return (
                     <a href={`game/${game.title}`}>
                     
-                        <div class={tw`bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700`}>
+                        <div class={tw`bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-80`}>
                             <img class={tw`rounded-lg`} src={
                                 (game.keyImages.filter(function(item) {
                                     return item.type === "Thumbnail";
                                 }))[0].url
                             }/>
                             <div class={tw`p-5`}>
-                                <h5 class={tw`mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white`}>{game.title}</h5>
+                                <h5 class={tw`mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate`}>{game.title}</h5>
                                 <p class={tw`mb-3 font-normal text-gray-700 dark:text-gray-400`}>{getDates(game)}</p>
                             </div>
                         </div>
