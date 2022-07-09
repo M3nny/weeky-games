@@ -3,7 +3,7 @@ import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { order } from "../utils/sort.tsx";
-import {getDates} from "../utils/get_dates.tsx";
+import { getDates } from "../utils/get_dates.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
@@ -19,11 +19,33 @@ export const handler: Handlers = {
 
 export default function Index(props) {
     if (!props.data) {
-        return <h1>Nessun gioco gratis</h1>
+        return <h1>There aren't free games promotions at the moment</h1>
     }
-
     return (
         <body class={tw`bg-base`}>
+            
+            <nav class={tw`flex items-center justify-between flex-wrap p-6`}>
+                <div class={tw`flex items-center flex-shrink-0 mr-6`}>
+                    <img class={tw`fill-current h-8 w-8 mr-2`} width="54" height="54" viewBox="0 0 54 54" src="videogame_asset.svg"></img>
+                    <span class={tw`font-semibold text-xl tracking-tight`}>Free Games</span>
+                </div>
+                <div class={tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
+                    <div class={tw`text-sm lg:flex-grow`}>
+                      <a href="/" class={tw`block mt-4 lg:inline-block lg:mt-0 mr-4`}>
+                        Home
+                      </a>
+                      <a href="https://github.com/M3nny/epic_free_games" class={tw`block mt-4 lg:inline-block lg:mt-0 mr-4`}>
+                        About
+                      </a>
+                    </div>
+                    <div>
+                      <a href="/" class={tw`inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0`}>
+                        Placeholder
+                      </a>
+                    </div>
+                </div>
+            </nav>
+            
             <div class={tw`container grid place-items-center h-screen my-12 mx-auto px-4 md:px-12`}>
                 <div class={tw`flex flex-wrap -mx-1 lg:-mx-4`}>
                     {props.data.map(game => {
@@ -31,7 +53,6 @@ export default function Index(props) {
                             <a href={`game/${game.title}`}>
                                 <div class={tw `flex flex-wrap -mx-1 lg:-mx-4`}>
                                     <div class={tw `my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3`}>
-                            
                                         <div class={tw`mx-1 bg-white rounded-lg border border-crust shadow-md w-80`}>
                                             <img class={tw`rounded-lg`} src={
                                                 (game.keyImages.filter(function(item) {
@@ -51,5 +72,5 @@ export default function Index(props) {
                 </div>
             </div>
         </body>
-  )
+    )
 }
