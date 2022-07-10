@@ -2,8 +2,8 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { order } from "../utils/sort.tsx";
-import { getDates } from "../utils/get_dates.tsx";
+import { order } from "../utils/functions/sort.tsx";
+import { getDates } from "../utils/functions/get_dates.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
@@ -24,43 +24,43 @@ export default function Index(props) {
     return (
         <body class={tw`bg-base`}>
             
-            <nav class={tw`flex items-center justify-between flex-wrap p-6`}>
+            <nav class={tw`flex items-center justify-between bg-surface0 flex-wrap p-6`}>
                 <div class={tw`flex items-center flex-shrink-0 mr-6`}>
                     <img class={tw`fill-current h-8 w-8 mr-2`} width="54" height="54" viewBox="0 0 54 54" src="videogame_asset.svg"></img>
-                    <span class={tw`font-semibold text-xl tracking-tight`}>Free Games</span>
+                    <span class={tw`font-semibold text-xl text-lavender tracking-tight`}>Free Games</span>
                 </div>
                 <div class={tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
                     <div class={tw`text-sm lg:flex-grow`}>
-                      <a href="/" class={tw`block mt-4 lg:inline-block lg:mt-0 mr-4`}>
-                        Home
-                      </a>
-                      <a href="https://github.com/M3nny/epic_free_games" class={tw`block mt-4 lg:inline-block lg:mt-0 mr-4`}>
-                        About
-                      </a>
+                        <a href="/" class={tw`block mt-4 text-text lg:inline-block lg:mt-0 mr-4`}>
+                            Home
+                        </a>
+                        <a href="https://github.com/M3nny/epic_free_games" class={tw`block mt-4 text-text lg:inline-block lg:mt-0 mr-4`}>
+                            About
+                        </a>
                     </div>
                     <div>
-                      <a href="/" class={tw`inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0`}>
-                        Placeholder
-                      </a>
+                        <a href="/" class={tw`inline-block text-sm px-4 py-2 leading-none border text-teal border-teal rounded mt-4 lg:mt-0`}>
+                            Placeholder
+                        </a>
                     </div>
                 </div>
             </nav>
             
-            <div class={tw`container grid place-items-center h-screen my-12 mx-auto px-4 md:px-12`}>
-                <div class={tw`flex flex-wrap -mx-1 lg:-mx-4`}>
+            <div class={tw`container grid place-items-center h-screen mt-3 mx-auto px-4 md:px-12`}>
+                <div class={tw`flex justify-center flex-wrap -mx-1 lg:-mx-4`}>
                     {props.data.map(game => {
                         return (
                             <a href={`game/${game.title}`}>
                                 <div class={tw `flex flex-wrap -mx-1 lg:-mx-4`}>
                                     <div class={tw `my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3`}>
-                                        <div class={tw`mx-1 bg-white rounded-lg border border-crust shadow-md w-80`}>
-                                            <img class={tw`rounded-lg`} src={
+                                        <div class={tw`mx-1 bg-white rounded-lg shadow-md w-80`}>
+                                            <img class={tw`rounded-t-lg`} src={
                                                 (game.keyImages.filter(function(item) {
                                                     return item.type === "Thumbnail";
                                                 }))[0].url
                                             }/>
-                                            <div class={tw`p-5 bg-crust`}>
-                                                <h5 class={tw`mb-2 text-2xl font-bold tracking-tight text-text truncate`}>{game.title}</h5>
+                                            <div class={tw`p-5 rounded-b-lg bg-crust`}>
+                                                <h5 class={tw`mb-2 text-2xl font-bold tracking-tight text-peach truncate`}>{game.title}</h5>
                                                 <p class={tw`mb-3 font-normal text-subtext1`}>{getDates(game)}</p>
                                             </div>
                                         </div>
@@ -70,6 +70,7 @@ export default function Index(props) {
                         )
                     })}
                 </div>
+                <div class={tw`text-text`}>Made by <a class={tw`text-blue`} href="https://github.com/M3nny">M3nny</a> with <a class={tw`text-green`} href="https://www.vim.org/"></a> and <text class={tw`text-red`}> </text></div>
             </div>
         </body>
     )
