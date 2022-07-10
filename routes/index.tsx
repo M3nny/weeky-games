@@ -22,11 +22,11 @@ export default function Index(props) {
         return <h1>There aren't free games promotions at the moment</h1>
     }
     return (
-        <body class={tw`bg-base`}>
+        <body class={tw`bg-base font-sans`}>
             
             <nav class={tw`flex items-center justify-between bg-surface0 flex-wrap p-6`}>
                 <div class={tw`flex items-center flex-shrink-0 mr-6`}>
-                    <img class={tw`fill-current h-8 w-8 mr-2`} width="54" height="54" viewBox="0 0 54 54" src="videogame_asset.svg"></img>
+                    <img class={tw`fill-current h-14 w-14 mr-2`} src="logo.svg"></img>
                     <span class={tw`font-semibold text-xl text-lavender tracking-tight`}>Free Games</span>
                 </div>
                 <div class={tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
@@ -70,7 +70,7 @@ export default function Index(props) {
                         )
                     })}
                 </div>
-                <div class={tw`text-text`}>Made by <a class={tw`text-blue`} href="https://github.com/M3nny">M3nny</a> with <a class={tw`text-green`} href="https://www.vim.org/"></a> and <text class={tw`text-red`}> </text></div>
+                <div class={tw`text-text`}>Made by <a class={tw`text-blue`} href="https://github.com/M3nny">M3nny</a></div>
             </div>
         </body>
     )
