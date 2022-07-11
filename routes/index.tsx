@@ -23,11 +23,12 @@ export default function Index(props) {
     }
     return (
         <body class={tw`bg-base font-sans`}>
+            <title>Weeky Games</title>
             
             <nav class={tw`flex items-center justify-between bg-surface0 flex-wrap p-6`}>
                 <div class={tw`flex items-center flex-shrink-0 mr-6`}>
                     <img class={tw`fill-current h-14 w-14 mr-2`} src="logo.svg"></img>
-                    <span class={tw`font-semibold text-xl text-lavender tracking-tight`}>Free Games</span>
+                    <span class={tw`font-semibold text-xl text-lavender tracking-tight`}>Weeky Games</span>
                 </div>
                 <div class={tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
                     <div class={tw`text-sm lg:flex-grow`}>
@@ -70,7 +71,10 @@ export default function Index(props) {
                         )
                     })}
                 </div>
-                <div class={tw`text-text`}>Made by <a class={tw`text-blue`} href="https://github.com/M3nny">M3nny</a></div>
+                <div class={tw`mb-8 text-text`}>
+                    Created with <a href="https://fresh.deno.dev/"><img class={tw`inline-block h-6`}src="fresh_logo.svg"></img></a>
+                    by <a class={tw`text-blue`} href="https://github.com/M3nny">M3nny</a> 
+                </div>
             </div>
         </body>
     )
