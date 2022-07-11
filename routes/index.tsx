@@ -71,10 +71,10 @@ export default function Index(props) {
                         )
                     })}
                 </div>
-                <div class={tw`mb-8 text-text`}>
+                <footer class={tw`mb-8 text-text`}>
                     Created with <a href="https://fresh.deno.dev/"><img class={tw`inline-block h-6`}src="fresh_logo.svg"></img></a>
                     by <a class={tw`text-blue`} href="https://github.com/M3nny">M3nny</a> 
-                </div>
+                </footer>
             </div>
         </body>
     )
