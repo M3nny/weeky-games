@@ -8,14 +8,14 @@ import Navbar from "../utils/common/navbar.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
-    const resp = await fetch(`https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=IT`);
-    if (resp.status === 404) {
-        return ctx.render(null);
+        const resp = await fetch(`https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=IT`);
+        if (resp.status === 404) {
+            return ctx.render(null);
+        }
+        const epic_json_api = await resp.json();
+        let free_games =  await epic_json_api.data.Catalog.searchStore.elements;
+        return ctx.render(order(free_games));
     }
-    const epic_json_api = await resp.json();
-    let free_games =  await epic_json_api.data.Catalog.searchStore.elements;
-    return ctx.render(order(free_games));
-  }
 }
 
 export default function Index(props) {
