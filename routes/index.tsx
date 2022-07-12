@@ -4,6 +4,7 @@ import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { order } from "../utils/functions/sort.tsx";
 import { getDates } from "../utils/functions/get_dates.tsx";
+import Navbar from "../utils/common/navbar.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
@@ -24,28 +25,7 @@ export default function Index(props) {
     return (
         <body class={tw`bg-base font-sans`}>
             <title>Weeky Games</title>
-            
-            <nav class={tw`flex items-center justify-between bg-surface0 flex-wrap p-6`}>
-                <div class={tw`flex items-center flex-shrink-0 mr-6`}>
-                    <img class={tw`fill-current h-14 w-14 mr-2`} src="logo.svg"></img>
-                    <span class={tw`font-semibold text-xl text-lavender tracking-tight`}>Weeky Games</span>
-                </div>
-                <div class={tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}>
-                    <div class={tw`text-sm lg:flex-grow`}>
-                        <a href="/" class={tw`block mt-4 text-text lg:inline-block lg:mt-0 mr-4`}>
-                            Home
-                        </a>
-                        <a href="https://github.com/M3nny/epic_free_games" class={tw`block mt-4 text-text lg:inline-block lg:mt-0 mr-4`}>
-                            About
-                        </a>
-                    </div>
-                    <div>
-                        <a href="/" class={tw`inline-block text-sm px-4 py-2 leading-none border text-teal border-teal rounded mt-4 lg:mt-0`}>
-                            Placeholder
-                        </a>
-                    </div>
-                </div>
-            </nav>
+            <Navbar/>            
             
             <div class={tw`container grid place-items-center h-screen mt-3 mx-auto px-4 md:px-12`}>
                 <div class={tw`flex justify-center flex-wrap -mx-1 lg:-mx-4`}>

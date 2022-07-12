@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
+import Navbar from "../../utils/common/navbar.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
@@ -19,6 +20,13 @@ export const handler: Handlers = {
 }
 
 export default function Game(props) {
-    return <div>Pagina per {props.params.game.replace(/%20/g, ' ')}</div>; 
+    return (
+        <body class={tw`bg-base font-sans`}>
+            <title>Weeky Games - {props.params.game.replace(/%20/g, ' ')}</title>
+            <Navbar/>
+
+            
+        </body>
+    )
 }
 
