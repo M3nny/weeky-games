@@ -19,8 +19,8 @@ export default function Navbar () {
                     </a>
                 </div>
                 <div>
-                    <a href="/" class={tw`inline-block text-sm px-4 py-2 leading-none border text-teal border-teal rounded mt-4 lg:mt-0`}>
-                        Placeholder
+                    <a href="https://www.buymeacoffee.com/M3nny" class={tw`inline-block text-sm px-4 py-2 leading-none border text-teal border-teal rounded mt-4 lg:mt-0`}>
+                       Buy me a coffee 
                     </a>
                 </div>
             </div>
