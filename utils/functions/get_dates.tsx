@@ -22,3 +22,8 @@ export function getDates(game) {
         return `Free Now - ${dates[1][2]}/${dates[1][1]}`;
     }
 }
+
+export function formatDate(date) {
+    date = date.substring(date.indexOf(""),date.lastIndexOf("T")).split("-");
+    return (date[2] + '/' + date[1] + '/' + date[0]);
+}
