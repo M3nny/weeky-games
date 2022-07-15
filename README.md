@@ -1,5 +1,5 @@
 <div align="center">
-	<img src="https://raw.githubusercontent.com/M3nny/Weeky-Games/ab557c3bd82fd653f0ec3bbf07ecd8adab41b07f/static/logo.svg?token=ASTBNOVYY7KWJ2SZ77HCXMLC2A3RW" width="100" alt="Logo"/>
+	<img src="https://raw.githubusercontent.com/M3nny/Weeky-Games/ab557c3bd82fd653f0ec3bbf07ecd8adab41b07f/static/logo.svg" width="100" alt="Logo"/>
 	<h1>Weeky Games</h1>
 </div>
 
