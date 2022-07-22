@@ -39,7 +39,7 @@ export default function Game(props) {
                     
                     <div class={tw`flex justify-center mt-8`}>
                         <div class={tw`grid place-items-center`}>
-                            <text class={tw`text-rosewater`}>Initial Release</text>
+                            <text class={tw`text-rosewater`}>Initial Release on Epic</text>
                             <text class={tw`text-yellow`}>{formatDate(props.data[0].effectiveDate)}</text>
                             <img class={tw`rounded-lg w-40 h-2 mt-3`} src="../separator.svg"></img>
                         </div>
