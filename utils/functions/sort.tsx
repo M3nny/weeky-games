@@ -17,10 +17,10 @@ export function order(games) {
     let free_games = [];
     for (let i = 0; i < games.length; i++) {
         if (games[i].promotions != null) {
-            if ((games[i].promotions.promotionalOffers).length != 0 ) {
+            if (games[i].promotions.promotionalOffers.length != 0 ) {
                 free_now.push(games[i]);
             }
-            else {
+            else if (games[i].promotions.upcomingPromotionalOffers.length != 0){
                 free_later.push(games[i]);
             } 
         }
