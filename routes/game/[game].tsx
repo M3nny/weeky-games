@@ -14,7 +14,7 @@ export const handler: Handlers = {
         const epic_json_api = await resp.json();
         let free_games =  await epic_json_api.data.Catalog.searchStore.elements;
         let game = await free_games.filter(function(item) {
-            return item.title === ctx.params.game.replace(/%20/g, ' ');
+            return item.id === ctx.params.game;
         })
         let query: string = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + game[0].title + ' Official Trailer&type=video&key=' + Deno.env.get("yt-api-key"));
         let yt_json_api = await query.json();

@@ -31,7 +31,7 @@ export default function Index(props) {
                 <div class={tw`flex justify-center flex-wrap -mx-1 lg:-mx-4`}>
                     {props.data.map(game => {
                         return (
-                            <a href={`game/${game.title}`}>
+                            <a href={`game/${game.id}`}>
                                 <div class={tw `flex flex-wrap -mx-1 lg:-mx-4`}>
                                     <div class={tw `my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3`}>
                                         <div class={tw`mx-1 bg-white rounded-lg shadow-md w-80`}>
