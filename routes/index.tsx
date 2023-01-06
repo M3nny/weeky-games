@@ -8,6 +8,7 @@ import Navbar from "../utils/common/navbar.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
+        const resp = await fetch(`https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=IT`);
         if (resp.status === 404) {
             return ctx.render(null);
         }
