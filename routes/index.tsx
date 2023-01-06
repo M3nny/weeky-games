@@ -8,7 +8,6 @@ import Navbar from "../utils/common/navbar.tsx";
 
 export const handler: Handlers = {
     async GET(_, ctx) {
-        const resp = await fetch(`https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=IT`);
         if (resp.status === 404) {
             return ctx.render(null);
         }
@@ -25,8 +24,8 @@ export default function Index(props) {
     return (
         <body class={tw`bg-base font-sans`}>
             <title>Weeky Games</title>
-            <Navbar/>            
-            
+            <Navbar/>
+
             <div class={tw`container grid place-items-center h-screen mt-3 mx-auto px-4 md:px-12`}>
                 <div class={tw`flex justify-center flex-wrap -mx-1 lg:-mx-4`}>
                     {props.data.map(game => {
