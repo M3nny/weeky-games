@@ -16,7 +16,7 @@ export const handler: Handlers = {
         let game = await free_games.filter(function(item) {
             return item.id === ctx.params.game;
         })
-        let query: string = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + game[0].title + ' Videogame Official Trailer&type=video&key=' + Deno.env.get("yt-api-key");
+        let query: string = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + game[0].title + ' Videogame Official Trailer&type=video&key=' + Deno.env.get("yt-api-key"));
         let yt_json_api = await query.json();
         game.push('https://www.youtube.com/embed/' + yt_json_api.items[0].id.videoId);
         return ctx.render(game);
