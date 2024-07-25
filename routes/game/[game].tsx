@@ -16,7 +16,7 @@ export const handler: Handlers = {
         let game = await free_games.filter(function(item) {
             return item.id === ctx.params.game;
         })
-        let query: string = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + game[0].title + ' Videogame Official Trailer&type=video&key=' + Deno.env.get("yt-api-key"));
+        let query: string = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=' + game[0].title + ' Videogame Official Trailer&type=video&key=' + Deno.env.get("yt-api-key");
         let yt_json_api = await query.json();
         game.push('https://www.youtube.com/embed/' + yt_json_api.items[0].id.videoId);
         return ctx.render(game);
@@ -28,20 +28,22 @@ export default function Game(props) {
         <body class={tw`bg-base font-sans h-screen`}>
             <title>Weeky Games - {props.params.game.replace(/%20/g, ' ')}</title>
             <Navbar/>
-            
+
             <div class={tw`container grid place-items-center h-5/6 mt-3 mx-auto px-4 md:px-12`}>
                 <div class={tw`flex justify-center flex-wrap w-9/12 h-3/6 -mx-1 lg:-mx-4`}>
                     <iframe class={tw`w-full h-full rounded-lg`}src={props.data[1]} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    
-                    <div class={tw`bg-surface0 rounded px-1 py-1 mt-3`}>
-                        <text class={tw`text-text`}>{props.data[0].description}</text>
-                    </div>
-                    
-                    <div class={tw`flex justify-center mt-8`}>
-                        <div class={tw`grid place-items-center`}>
-                            <text class={tw`text-rosewater`}>Initial Release on Epic</text>
-                            <text class={tw`text-yellow`}>{formatDate(props.data[0].effectiveDate)}</text>
-                            <img class={tw`rounded-lg w-40 h-2 mt-3`} src="../separator.svg"></img>
+
+                    <div class={tw`flex flex-col space-y-5`}>
+                        <div class={tw`bg-surface0 rounded px-1 py-1 mt-3`}>
+                            <text class={tw`text-text`}>{props.data[0].description}</text>
+                        </div>
+
+                        <div class={tw`flex justify-center mt-8`}>
+                            <div class={tw`grid place-items-center`}>
+                                <text class={tw`text-rosewater`}>Initial Release on Epic</text>
+                                <text class={tw`text-yellow`}>{formatDate(props.data[0].effectiveDate)}</text>
+                                <img class={tw`rounded-lg w-40 h-2 mt-3`} src="../separator.svg"></img>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -49,4 +51,3 @@ export default function Game(props) {
         </body>
     )
 }
-
